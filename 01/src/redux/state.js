@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let store = {
 	_state: {
@@ -27,6 +29,7 @@ let store = {
 				{ id: 4, message: 'Privet' },
 				{ id: 5, message: 'Message' },
 			],
+			newMessageBody: '',
 		},
 		sideBar: {
 		},
@@ -56,10 +59,21 @@ let store = {
 		this._callSubscriber = observer;
 	},
 	dispatch(action) { // { type: 'ADD-POST'} action is object
-		if (action.type === 'ADD-POST') {
+		if (action.type === ADD_POST) {
 			this._addPost();
-		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+
+		} else if (action.type === UPDATE_NEW_POST_TEXT) {
 			this._updateNewPostText(action.newText);
+
+		} else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+			this._state.dialogsPage.newMessageBody = action.body;
+			this._callSubscriber(this._state);
+
+		} else if (action.type === SEND_MESSAGE) {
+			let body = this._state.dialogsPage.newMessageBody;
+			this._state.dialogsPage.newMessageBody = '';
+			this._state.dialogsPage.messages.push({ id: 6, message: body });
+			this._callSubscriber(this._state);
 		}
 	}
 }
@@ -74,6 +88,19 @@ export const updateNewPostTextActionCreator = (text) => {
 	return {
 		type: UPDATE_NEW_POST_TEXT,
 		newText: text,
+	}
+}
+
+export const sendMessageCreator = () => {
+	return {
+		type: SEND_MESSAGE,
+	}
+}
+
+export const updateNewMessageBodyCreator = (body) => {
+	return {
+		type: UPDATE_NEW_MESSAGE_BODY,
+		body: body,
 	}
 }
 
