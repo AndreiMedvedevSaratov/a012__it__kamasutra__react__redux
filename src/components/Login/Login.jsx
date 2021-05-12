@@ -48,7 +48,7 @@ const Login = (props) => {
 	}
 
 	if (props.isAuth) {
-		return <Redirect to={"/profile"} />
+		return <Redirect to={"/login"} /> //Здесь исправил на логин, был profile - после 80го урока
 	}
 
 	return (
