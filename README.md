@@ -1,3 +1,26 @@
+## It__Kamasutra__React__Redux
+
+This project was created with React and Redux.
+
+I used this course:
+
+https://www.youtube.com/playlist?list=PLcvhF2Wqh7DNVy1OCUpG3i5lyxyBWhGZ8
+
+It is social net view part
+
+Status of project: In Progress!
+
+Deploy: not yet
+
+Technology: React, Redux
+
+For any additional information, feel free to contact with me by:
+Tel: +7-917-215-19-68
+e-mail: andreiok@gmail.com
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
