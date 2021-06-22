@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import store from './redux/redux-store';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import Navbar from './components/Navbar/Navbar';
@@ -71,11 +71,11 @@ let AppContainer = compose(
 
 const SamuraiJSApp = (props) => {
   return <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 }
 
